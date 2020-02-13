@@ -4,8 +4,7 @@
   "description": "HC mock backend",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "startold": "node server.js",
-    "start": "node ./bin/www"
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -22,8 +21,11 @@
     "cookie-parser": "^1.4.4",
     "debug": "^4.1.1",
     "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
     "http-errors": "^1.7.3",
-    "jade": "^1.11.0",
     "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   }
 }
