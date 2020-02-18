@@ -7,7 +7,7 @@ import hbs from 'express-handlebars';
 import bodyParser from 'body-parser';
 
 
-let app = express();
+const app = express();
 
 app.engine('hbs', hbs({ extname: 'hbs', defaultLayout: 'layout', layoutsDir: __dirname + '/views/layouts/' }));
 // view engine setup
@@ -41,13 +41,15 @@ app.all('*', (req, res, next) => {
   next();
 });
 
-const productRoutes = require('./api/routes/products.ts');
-const orderRoutes = require('./api/routes/orders.ts');
-const trackingRoutes = require('./api/routes/tracking.ts');
+
+import { productRoutes } from './api/routes/products';
+// const productRoutes = require('./api/routes/products.ts');
+// const orderRoutes = require('./api/routes/orders.ts');
+// const trackingRoutes = require('./api/routes/tracking.ts');
 
 app.use('/products', productRoutes);
-app.use('/orders', orderRoutes);
-app.use('/tacking', trackingRoutes);
+// app.use('/orders', orderRoutes);
+// app.use('/tacking', trackingRoutes);
 
 
 // catch 404 and forward to error handler
@@ -56,7 +58,7 @@ app.use((req, res, next) => {
 });
 
 // error handler
-app.use((err, req, res, next) => {
+app.use((err: any, req: any, res: any, next: any) => {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -72,4 +74,6 @@ app.use((err, req, res, next) => {
 });
 
 
-module.exports = app;
+export {
+  app
+};
