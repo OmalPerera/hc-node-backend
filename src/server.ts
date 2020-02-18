@@ -32,3 +32,4 @@ server.listen(PORT, () =>
 
 
 /**https://github.com/alexpermyakov/node-rest-api/tree/step.3 */
+//"prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
