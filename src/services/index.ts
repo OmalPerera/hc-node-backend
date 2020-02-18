@@ -1,3 +1,4 @@
-import searchRoutes from "./search/routes";
+import searchRoutes from "./search/search.routes";
+import orderRoutes from "./orders/orders.routes";
 
-export default [...searchRoutes];
+export default [...searchRoutes, ...orderRoutes];
