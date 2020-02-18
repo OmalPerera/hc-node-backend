@@ -3,12 +3,11 @@
   "version": "1.0.0",
   "description": "HC mock backend",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node dist/server.js",
-    "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
     "build": "tsc",
-    "dev": "tsc-watch --onSuccess \"node ./dist/src/server.js\"",
-    "dev1": "tsc --watch & nodemon dist",
+    "postinstall": "npm run build",
+    "start": "node dist/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsc-watch --onSuccess \"node ./dist/server.js\"",
     "prestart": "npm run build"
   },
   "repository": {

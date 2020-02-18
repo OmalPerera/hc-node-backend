@@ -15,17 +15,18 @@ process.on("unhandledRejection", e => {
     process.exit(1);
 });
 
-const router = express();
-applyMiddleware(middleware, router);
-applyRoutes(routes, router);
-applyMiddleware(errorHandlers, router);
+const app = express();
+applyMiddleware(middleware, app);
+applyRoutes(routes, app);
+applyMiddleware(errorHandlers, app);
 
 const { PORT = 3000 } = process.env;
-const server = http.createServer(router);
+const server = http.createServer(app);
 
 server.listen(PORT, () =>
-    console.log(`Server is running http://localhost:${PORT}...`)
+    console.log('HC Web Server started on : http://localhost:' + PORT)
 );
 
 
 /**https://github.com/alexpermyakov/node-rest-api/tree/step.3 */
+//"prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
