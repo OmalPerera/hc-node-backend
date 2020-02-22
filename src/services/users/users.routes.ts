@@ -11,7 +11,7 @@ export default [
                 userEmail: req.body.userEmail,
                 userPassword: req.body.userPassword
             }
-            if (userDetails.userEmail === 'admin@harverstcraft.com' && userDetails.userPassword === 'hc@123') {
+            if (userDetails.userEmail === 'admin@harvestcraft.com' && userDetails.userPassword === 'hc@123') {
                 data = {
                     "token": {
                         "value": "sk_test_4eC39Hq-_test_4C9HqLyjWDarjtT-1zdp7dcLyjWDa-rjtT1zdp7d",
@@ -22,6 +22,7 @@ export default [
                     "role": "admin"
                 }
                 res.status(200).json({
+                    status: 200,
                     data
                 });
             }
@@ -30,6 +31,7 @@ export default [
                     "message": "invalid credentials."
                 }
                 res.status(412).json({
+                    status: 412,
                     data
                 });
             }
