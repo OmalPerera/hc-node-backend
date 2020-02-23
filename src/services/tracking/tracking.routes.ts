@@ -34,5 +34,35 @@ export default [
             });
         }
     },
+    {
+        path: "/vehicles/initiatelivetracking/",
+        method: "post",
+        handler: async (req: Request, res: Response) => {
+            const userDetails = {
+                userEmail: req.body.userEmail,
+                userPassword: req.body.userPassword
+            }
+            const responsePayload = {
+                "status": 200,
+                "errors": [],
+                "validationResultErrors": [],
+                "errorKeys": [],
+                "data": {
+                    "isTrackable": true,
+                    "trackerID": 88,
+                    "latitude": 58.028618,
+                    "longitude": 7.439736,
+                    "recipientAddress": "xELSTERS GATE 15,3043 DRAMMEN",
+                    "recipientPosition": 8,
+                    "routeId": 673
+                }
+            }
+
+            res.status(responsePayload.status).json(
+                responsePayload
+            );
+
+        }
+    }
 
 ];
