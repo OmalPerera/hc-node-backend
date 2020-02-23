@@ -30,7 +30,15 @@ export default [
                 positonIndex: req.body.positonIndex,
             }
             res.status(200).json({
-                data: driversPathLatLong[trackingDetails.positonIndex]
+                "status": 200,
+                "errors": [],
+                "validationResultErrors": [],
+                "errorKeys": [],
+                "data": {
+                    'deliveryAcknowledgeCount': trackingDetails.positonIndex,
+                    'latitude': driversPathLatLong[trackingDetails.positonIndex].lat,
+                    'longitude': driversPathLatLong[trackingDetails.positonIndex].lng
+                }
             });
         }
     },
