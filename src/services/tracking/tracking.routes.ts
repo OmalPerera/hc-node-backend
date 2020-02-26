@@ -3,6 +3,7 @@ import { Request, Response } from "express";
 let routeType: number = 0;
 
 const driversPathLatLongExtended = [
+    { lat: 58.044775, lng: 7.396972 },
     { lat: 58.051918, lng: 7.396212 },
     { lat: 58.048199, lng: 7.402628 },
     { lat: 58.044219, lng: 7.418335 },
@@ -12,7 +13,6 @@ const driversPathLatLongExtended = [
     { lat: 58.033662, lng: 7.446818 },
     { lat: 58.030890, lng: 7.445069 },
     { lat: 58.029010, lng: 7.444940 },
-    { lat: 58.028209, lng: 7.441710 },
     { lat: 58.028618, lng: 7.439736 }
 ]
 
