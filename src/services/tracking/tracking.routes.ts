@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 
-let routeType: number = 0;
+let routeType: string = "short";
 
 const driversPathLatLongExtended = [
     { lat: 58.048188, lng: 7.253526 },
@@ -47,7 +47,7 @@ export default [
                 positonIndex: req.body.positonIndex,
             }
 
-            if (routeType === 0) {
+            if (routeType === "short") {
                 res.status(200).json({
                     "status": 200,
                     "errors": [],
