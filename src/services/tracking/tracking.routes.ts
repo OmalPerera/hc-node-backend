@@ -1,5 +1,22 @@
 import { Request, Response } from "express";
 
+let routeType: string = "short";
+
+const driversPathLatLongExtended = [
+    { lat: 58.048188, lng: 7.253526 },
+    { lat: 58.022629, lng: 7.450369 },
+    { lat: 58.025300, lng: 7.451530 },
+    { lat: 58.028023, lng: 7.449081 },
+    { lat: 58.025841, lng: 7.456009 },
+    { lat: 58.024580, lng: 7.455296 },
+    { lat: 58.025313, lng: 7.459480 },
+    { lat: 58.028382, lng: 7.458472 },
+    { lat: 58.032313, lng: 7.453271 },
+    { lat: 58.033126, lng: 7.444721 },
+    { lat: 58.028618, lng: 7.439736 }
+]
+
+
 const driversPathLatLong = [
     { lat: 58.037781, lng: 7.438677 },
     { lat: 58.036944, lng: 7.443371 },
@@ -29,17 +46,32 @@ export default [
             const trackingDetails = {
                 positonIndex: req.body.positonIndex,
             }
-            res.status(200).json({
-                "status": 200,
-                "errors": [],
-                "validationResultErrors": [],
-                "errorKeys": [],
-                "data": {
-                    'deliveryAcknowledgeCount': trackingDetails.positonIndex,
-                    'latitude': driversPathLatLong[trackingDetails.positonIndex].lat,
-                    'longitude': driversPathLatLong[trackingDetails.positonIndex].lng
-                }
-            });
+
+            if (false) { //(routeType === "short") {
+                res.status(200).json({
+                    "status": 200,
+                    "errors": [],
+                    "validationResultErrors": [],
+                    "errorKeys": [],
+                    "data": {
+                        'deliveryAcknowledgeCount': trackingDetails.positonIndex,
+                        'latitude': driversPathLatLong[trackingDetails.positonIndex].lat,
+                        'longitude': driversPathLatLong[trackingDetails.positonIndex].lng
+                    }
+                });
+            } else {
+                res.status(200).json({
+                    "status": 200,
+                    "errors": [],
+                    "validationResultErrors": [],
+                    "errorKeys": [],
+                    "data": {
+                        'deliveryAcknowledgeCount': trackingDetails.positonIndex,
+                        'latitude': driversPathLatLongExtended[trackingDetails.positonIndex].lat,
+                        'longitude': driversPathLatLongExtended[trackingDetails.positonIndex].lng
+                    }
+                });
+            }
         }
     },
     {
@@ -60,10 +92,29 @@ export default [
                     "trackerID": 88,
                     "latitude": 58.028618,
                     "longitude": 7.439736,
-                    "recipientAddress": "xELSTERS GATE 15,3043 DRAMMEN",
+                    "recipientAddress": "ELSTERS GATE 15,3043 DRAMMEN",
                     "recipientPosition": 8,
                     "routeId": 673
                 }
+            }
+
+            res.status(responsePayload.status).json(
+                responsePayload
+            );
+
+        }
+    },
+    {
+        path: "/vehicles/changeDriverPath/",
+        method: "post",
+        handler: async (req: Request, res: Response) => {
+            const reqDetails = {
+                pathType: req.body.type
+            }
+
+            routeType = reqDetails.pathType;
+            const responsePayload = {
+                "status": 200
             }
 
             res.status(responsePayload.status).json(
