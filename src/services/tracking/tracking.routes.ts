@@ -4,7 +4,7 @@ let routeType: number = 0;
 
 const driversPathLatLongExtended = [
     { lat: 58.044775, lng: 7.396972 },
-    { lat: 58.051918, lng: 7.396212 },
+    { lat: 58.056329, lng: 7.389549 },
     { lat: 58.048199, lng: 7.402628 },
     { lat: 58.044219, lng: 7.418335 },
     { lat: 58.041465, lng: 7.427240 },
