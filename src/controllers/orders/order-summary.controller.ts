@@ -9,6 +9,8 @@ interface IresponsePayload {
 }
 
 export function processOrderSummary(reqPayload: IrequestPayload) {
+    console.log(reqPayload);
+
     try {
         let responsePayload: IresponsePayload;
 

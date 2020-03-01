@@ -1,0 +1,91 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0"
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "schemes": [
+        "http"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/search": {
+            "get": {
+                "tags": [
+                    "Search Text"
+                ],
+                "summary": "Search by places using opencagedata service",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                },
+                "content": {
+                    "application/json": {}
+                },
+                "parameters": [
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "description": "Specifies the query string",
+                        "required": true,
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/order/getordersummarylist": {
+            "post": {
+                "tags": [
+                    "get order summary list"
+                ],
+                "summary": "get order summary list",
+                "responses": {
+                    "200": {
+                        "status": 200,
+                        "data": {
+                            "orderSummaryList": [
+                                {
+                                    "orderId": 1,
+                                    "orderName": "HCOO199",
+                                    "status": "active",
+                                    "date": "2020-02-08T08:13:01.264Z",
+                                    "numberOfItems": 5,
+                                    "deliveryAdress": "4934 Rolling Green Rd, Jackson, Kentucky 48144 United States"
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                },
+                "content": {
+                    "application/json": {}
+                },
+                "parameters": [
+                    {
+                        "name": "userToken",
+                        "in": "userToken",
+                        "description": "userToken",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "userId",
+                        "in": "userId",
+                        "description": "userId",
+                        "required": true,
+                        "type": "number"
+                    }
+                ]
+            }
+        }
+    }
+}
