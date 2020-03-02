@@ -47,7 +47,7 @@ export default [
                 positonIndex: req.body.positonIndex,
             }
 
-            if (true) { //(routeType === "short") {
+            if (false) { //(routeType === "short") {
                 res.status(200).json({
                     "status": 200,
                     "errors": [],
